@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Grid, Typography, makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import './Header.css'
 
 const useStyles = makeStyles({
     alignCenter: {
@@ -23,8 +24,14 @@ const Header = () => {
                         <Grid item className={classes.alignCenter}>
 
                             <Typography variant="h5">
-                                <Link to="/home" className={classes.linkStyle}>
+                                <Link to="/home" style={{ padding: "20px" }} className='link'>
                                     Home
+							</Link>
+                                <Link to="/profile" style={{ padding: "20px" }} className='link'>
+                                    Profile
+							</Link>
+                                <Link to="/users" style={{ padding: "20px" }} className='link'>
+                                    Users
 							</Link>
                             </Typography>
                         </Grid>

@@ -28,27 +28,34 @@ const Post = (props) => {
     const { title, body, id } = props.post;
     const postStyle = {
         border: '1px solid white',
-        margin: '20px 0px 20px 350px',
+        margin: '20px 20px 20px 50px',
         padding: '20px',
         borderRadius: '20px',
-        width: '800px',
+        width: '400px',
+        height: '290px',
         alignItems: 'center',
         boxShadow: '10px 10px 50px gray'
 
 
     }
+    if (props.loading) {
+        return <h2>Loading...</h2>;
+    }
     return (
-        <div>
+
+        <div >
+
 
             <Card style={postStyle} className={classes.root}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h6" component="h2">
                         {title}
                     </Typography>
 
                     <Typography variant="body2" component="p">
-                        {body}
+                        {body.slice(0, 100)}...
                     </Typography>
+
                 </CardContent>
                 <CardActions>
                     <Link style={{ textDecoration: "none" }} to={`/post/${id}`}>

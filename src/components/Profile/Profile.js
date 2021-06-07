@@ -1,12 +1,11 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import ProfilePost from '../ProfilePost/ProfilePost';
 
 const Profile = () => {
     const [posts, setPosts] = useState([]);
-    const [edit, setEdit] = useState(false);
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -21,9 +20,6 @@ const Profile = () => {
         localStorage.setItem('profile', JSON.stringify(updatePost));
         e.target.reset();
     };
-    const handleChange = (data) => {
-        setEdit(data);
-    }
 
     const handleDelete = (id) => {
 
@@ -99,7 +95,7 @@ const Profile = () => {
                 <div className="d-flex justify-content-center" ><Grid spacing={1}>
                     <Grid item xs={12} spacing={2}>
                         {
-                            posts.map(post => <ProfilePost handleChange={handleChange} handleUpdate={handleUpdate} handleDelete={handleDelete} key={post.id} post={post}></ProfilePost>)
+                            posts.map(post => <ProfilePost handleUpdate={handleUpdate} handleDelete={handleDelete} key={post.id} post={post}></ProfilePost>)
                         }
 
                     </Grid>

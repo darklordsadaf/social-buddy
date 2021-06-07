@@ -1,6 +1,5 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import Pagination from '../Paginantion/Pagination';
 import Post from '../Post/Post';
 
@@ -34,13 +33,11 @@ const UsersPost = () => {
                 setAddress(person.address);
             })
     }, [])
-    console.log(company);
 
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-    // console.log(currentPosts);
 
     const paginate = pageNumber => {
         setCurrentPage(pageNumber)
@@ -68,10 +65,6 @@ const UsersPost = () => {
                         {
                             currentPosts.map(post => <Post loading={loading} key={post.id} post={post}></Post>)
                         }
-                        {/* {count2 === 100 ? <div></div>
-                        :
-                        <div className="text-center p-4"> <button className="btn btn-primary" onClick={handleChange}><b>load more</b></button></div>
-                    } */}
                     </Grid>
                 </Grid>
             </div>

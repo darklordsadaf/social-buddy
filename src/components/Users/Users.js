@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import AllUsersData from '../AllUsersData/AllUsersData';
 import Pagination from '../Paginantion/Pagination';
 

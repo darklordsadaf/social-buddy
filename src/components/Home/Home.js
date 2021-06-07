@@ -1,21 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Post from '../Post/Post';
-import { UserContext } from '../../App';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        margin: '30px'
-    },
-}));
+
 const Home = () => {
-    const classes = useStyles();
     const [allPosts, setAllPosts] = useState([]);
     const [posts, setPosts] = useState([]);
     const [count1, setCount1] = useState(0);
     const [count2, setCount2] = useState(10);
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -23,7 +15,6 @@ const Home = () => {
             .then(data => {
                 setAllPosts(data);
                 setPosts(data.slice(0, 10));
-                setLoggedInUser(data.slice(1, 2));
             })
     }, [])
 
